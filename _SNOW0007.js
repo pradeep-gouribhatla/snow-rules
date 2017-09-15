@@ -88,7 +88,11 @@ module.exports = function(context){
 	let globalScope;
 
 	return {
-
+		"condition" (record) {
+			return record.sys_class_name == 'sys_script_client'
+					|| record.sys_class_name == 'catalog_script_client';
+		},
+		
 		Program() {
 			globalScope = context.getScope();
 		},

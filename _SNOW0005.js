@@ -90,6 +90,11 @@ module.exports = function(context){
 
 	return {
 
+		"condition" (record) {
+			return record.sys_class_name == 'sys_script_include'
+					|| record.sys_class_name == 'sys_script';
+		},
+
 		Program() {
 			globalScope = context.getScope();
 		},

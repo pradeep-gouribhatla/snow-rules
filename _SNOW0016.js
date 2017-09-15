@@ -12,6 +12,12 @@ module.exports = function(context){
 		
 		
 		return {
+
+			"condition" (record) {
+				return record.sys_class_name == 'sys_script_client'
+						|| record.sys_class_name == 'catalog_script_client';
+			},
+
 			/*  Client-side code should not use GlideRecord.
 			If GlideRecord is used with new keyword, then this will throw the error.
  			*/

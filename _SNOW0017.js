@@ -69,6 +69,11 @@ module.exports = function(context) {
 
 
   return {
+    "condition" (record) {
+      return record.sys_class_name == 'sys_script_include' 
+              || record.sys_class_name == 'sys_script';
+		},
+
     "NewExpression" : function(node){
       if(node.callee && node.callee.name && node.callee.name === GLIDERECORD){
       	_getGlideVariableOrAssignee(node.parent);

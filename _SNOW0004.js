@@ -45,7 +45,11 @@ function hasNextUsed(gr, reference) {
 module.exports = function(context){
 	
 	return {
-		
+		"condition" (record) {
+			return record.sys_class_name == 'sys_script_include'
+					|| record.sys_class_name == 'sys_script';
+		},
+
 		"BlockStatement:exit" (node) {
 			const globalScope = context.getScope();
 			

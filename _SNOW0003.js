@@ -4,8 +4,9 @@
 
 module.exports = function(context){
 	return {
-		"condition" (node) {
-			return 'type=sys_client_script';
+		"condition" (record) {
+			return record.sys_class_name == 'sys_script_client'
+					|| record.sys_class_name == 'catalog_script_client';
 		},
 		
 		"CallExpression:exit" (node) {
