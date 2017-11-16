@@ -11,10 +11,10 @@ module.exports = function(context){
 		
 		"BlockStatement:exit"(node) {
 			if(node && node.body && node.body.length  === 0) {
-                        console.log('aaaa -> ' + node.parent.parent.key.type)
-                if(!isOOTBMethod(node)) {
+                       
+                               if(!isOOTBMethod(node)) {
 					context.report(node, "Scripts should not have an empty blocks defined ");
-                }
+                               }
 			}          
 		}
 	}
